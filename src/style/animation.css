@@ -2,79 +2,27 @@
   --animat: 1s cubic-bezier(0.6, 0, 0.4, 1);
 }
 
-*:not(#pfc) {
+* {
   transition: var(--animat);
 }
 
-.torender :not(#title):not(#title *) {
+.torender {
   opacity: 0;
 }
 
-#title>p {
-  transition: all var(--animat), opacity 0s;
-}
 
-#pfc {
-  animation: appear .4s cubic-bezier(0.72, 0, 0.24, 1);
-}
-
-@keyframes appear {
-  from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-#container {
-  opacity: 1;
-}
-
-#description.torender {
-  height: 0;
-  opacity: 0;
-}
-
-#profiles {
-  transition: 1.5s;
-  transition: .3s cubic-bezier(0.7, 0, 0.3, 1);
-}
-
-#profiles.torender {
-  height: 0;
-  margin-bottom: -192px;
-}
-
-img.torender, #profiles>a.torender {
-  opacity: 0;
-}
-
-/* --- DESKTOP --- */
-@media only screen and (min-width: 768px) {
-  #title.torender p {
-    margin-left: -377px;
+@keyframes cube-rotate {
+  0% {
+    transform: rotateX(90deg);
     opacity: 0;
   }
 
-  #container {
-    height: 192px;
-  }
-
-  #container.rendered {
-    height: 392px;
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
   }
 }
 
-/* --- MOBILE --- */
-@media only screen and (max-width: 768px) {
-  #title.torender p {
-    margin-left: -215px;
-    opacity: 0;
-  }
-
-  #container {
-    height: 96px;
-  }
-
-  #container.rendered {
-    /* 48*4 + #pfc*/
-    height: 288px;
-  }
+#title.torender {
+  animation: cube-rotate 6s cubic-bezier(0.6, 0, 0.4, 1) !important;
 }

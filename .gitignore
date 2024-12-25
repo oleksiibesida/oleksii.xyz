@@ -12,6 +12,7 @@ dist
 public
 dist-ssr
 *.local
+bun.lockb
 
 # Editor directories and files
 .vscode/*
