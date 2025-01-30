@@ -1,26 +1,19 @@
-#container {
-  max-width: 532px;
+/* #name>p {
+  font-size: 16px;
+  margin-left: -3px;
+  margin-top: 1px;
 }
 
-#description {
-  font-size: 20px;
-  line-height: 28px;
-  height: 56px;
+#profile-picture {
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 0 4px var(--background);
+}
+
+#headline {
+  font-size: 96px;
 }
 
 #profiles {
   gap: 24px;
-}
-
-#title>p {
-  font-size: 128px;
-  margin-left: -36px;
-  width: 377px;
-  letter-spacing: -5.12px;
-}
-
-#pfc {
-  width: 192px;
-  height: 192px;
-  box-shadow: 0 0 0 24px var(--background);
-}
+} */

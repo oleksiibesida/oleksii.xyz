@@ -1,11 +1,6 @@
 p {
   margin: 0;
   user-select: none;
-  text-shadow:
-    0 8px 4px var(--background),
-    0 -8px 4px var(--background),
-    8px 0 4px var(--background),
-    -8px 0 4px var(--background);
 }
 
 img {
@@ -17,10 +12,10 @@ img {
   flex-direction: column;
   text-align: center;
   margin: auto;
-  gap: 48px;
+  gap: 32px;
 }
 
-#title {
+#name {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,14 +24,17 @@ img {
   overflow: hidden;
   align-self: center;
   text-align: end;
+  margin-bottom: -16px;
 }
 
-#title>p {
+#name>p {
+  color: var(--secondary);
   position: relative;
   font-family: 'display';
 }
 
-#pfc, #pfc img {
+#profile-picture, #profile-picture img {
+  perspective: 600px;
   border-radius: 96px;
   display: flex;
   flex-direction: row;
@@ -47,15 +45,19 @@ img {
 }
 
 
-#pfc img {
+#profile-picture img {
   width: 100%;
   height: 100%;
 }
 
-#description {
-  color: var(--secondary);
+#headline {
   font-family: 'inter';
   white-space: nowrap;
+  perspective: 512px;
+}
+
+#headline span {
+  display: inline-block;
 }
 
 #profiles {
@@ -81,7 +83,7 @@ img {
 }
 
 @media (prefers-color-scheme: dark) {
-  #profiles>a>img, #footer>img{
+  #profiles>a>img, #footer>img, #mail>img{
     filter: invert(100%);
   }
 
@@ -164,4 +166,35 @@ img {
   color: #FFF;
   background: var(--accent);
   text-shadow: none;
+}
+
+#mail {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--element);
+  padding: 4px 12px;
+  border-radius: 16px;
+  width: fit-content;
+  align-self: center;
+}
+
+#mail img {
+  margin: -10px;
+  margin-right: -16px;
+  width: 36px;
+  height: 36px;
+}
+
+#mail p {
+  font-size: 14px;
+  color: var(--secondary);
+  text-shadow: none;
+  display: flex;
+  gap: 4px;
+}
+
+#mail span {
+  color: var(--text);
 }

@@ -24,18 +24,28 @@ import cr from '/assets/icons/copyright.svg';
 
 const social: Record<string, string> = { tg, lt, gh, li, mt };
 
-const container = <div id='container' delay={700}>
-  <div id='title' delay={400}>
-    <div id='pfc'><img src={pf} alt='Portrait' /></div>
-    <p>Oleksii</p>
+const container = <div id='container'>
+  <div id='name' delay={0}>
+    <div id='profile-picture'><img src={pf} alt='Portrait' /></div>
+    <p>OLEKSII</p>
   </div>
-  <p id='description' delay={700} />
-  <div id='profiles' delay={3700}> {
+  <p id='headline' style="display: inline">
+    <span delay={400}>Delight</span>&nbsp;
+    <span delay={450}>Centered</span>
+    <br/>
+    <span delay={700}>IxD</span>&nbsp;
+    <span delay={750}>Designer</span>
+  </p>
+  <div id="mail" delay={800}>
+    <img src={mt} alt="Mail Icon" />
+    <p><span>Mail</span>h@olek.si</p>
+  </div>
+  <div id='profiles' delay={800}> {
     Object.entries(profile).map(([id, props]) => {
       let index = Object.keys(profile).indexOf(id),  link =  props['href'];
       let  href = `${link.startsWith('mailto:') ? '' : 'https://'}${link}`;
       let image = <img src={social[id]} alt={props['alt']} />;
-      return <a id={id} delay={3700 + index * 50} href={href} target="_blank">{image}</a>;
+      return <a id={id} delay={800 + index * 50} href={href} target="_blank">{image}</a>;
     })
   } </div>
 </div>;
@@ -86,8 +96,8 @@ const elementResolve: Record<string, (e: HTMLElement) => void> = {
     document.getElementById('loader')?.remove();
   },
   container: () => {
-    let root = document.querySelector(':root') as HTMLElement;
-    root.style.setProperty('--background-position', 'left 50% top calc(50% - 48px)'); 
+    // let root = document.querySelector(':root') as HTMLElement;
+    // root.style.setProperty('--background-position', 'left 50% top calc(50% - 48px)'); 
   },
   description: async (element: HTMLElement) => {
     await new Promise((resolve) => setTimeout(resolve, 200));

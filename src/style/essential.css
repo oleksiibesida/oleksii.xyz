@@ -28,11 +28,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-content: center;
-  background:
-    linear-gradient(90deg, var(--background) 23px, transparent 1%) var(--background-position),
-    linear-gradient(var(--background) 23px, transparent 1%) var(--background-position),
-    var(--element);
-  background-size: 24px 24px;
+  background: var(--background);
   letter-spacing: -0.04em;
   font-family: 'text';
   -webkit-font-smoothing: antialiased;
