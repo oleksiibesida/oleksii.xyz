@@ -1,19 +1,19 @@
 :root {
-  --animat: 1s cubic-bezier(0.6, 0, 0.4, 1);
-}
-
-* {
-  transition: var(--animat);
+  --animat: cubic-bezier(0.1, 0.1, 0, 1);
 }
 
 .torender {
-  opacity: 0;
+  opacity: 0 !important;
+}
+
+:not(.torender) {
+  animation: .6s cube-rotate var(--animat);
 }
 
 
 @keyframes cube-rotate {
   0% {
-    transform: rotateX(90deg);
+    transform: rotateX(-40deg) translateY(36px);
     opacity: 0;
   }
 
@@ -21,8 +21,4 @@
     transform: rotateX(0deg);
     opacity: 1;
   }
-}
-
-#title.torender {
-  animation: cube-rotate 6s cubic-bezier(0.6, 0, 0.4, 1) !important;
 }
