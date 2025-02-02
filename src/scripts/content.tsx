@@ -30,11 +30,11 @@ const container = <div id='container'>
     <p>OLEKSII</p>
   </div>
   <p id='headline' style="display: inline">
-    <span delay={400}>Delight</span>&nbsp;
-    <span delay={450}>Centered</span>
+    <span delay={300}>Delight</span>&nbsp;
+    <span delay={350}>Centered</span>
     <br/>
-    <span delay={700}>IxD</span>&nbsp;
-    <span delay={750}>Designer</span>
+    <span delay={600}>IxD</span>&nbsp;
+    <span delay={650}>Designer</span>
   </p>
   <div id="mail" delay={800}>
     <img src={mt} alt="Mail Icon" />
