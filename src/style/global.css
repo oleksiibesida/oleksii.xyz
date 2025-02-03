@@ -236,3 +236,67 @@ img {
 #mail span {
   color: var(--text);
 }
+
+#timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--secondary);
+  font-size: 14px;
+  letter-spacing: -0.5px;
+}
+
+#timeline .separator {
+  display: flex;
+  gap: 2px;
+  opacity: 0.3;
+}
+
+#timeline .separator div {
+  width: 1px;
+  height: 10px;
+  background: #DDD;
+}
+
+#timeline .tab {
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#timeline .tab.inactive {
+  opacity: 0.5;
+}
+
+/* --- MOBILE --- */
+
+#container {
+  padding: 0 32px;
+}
+
+#profile-picture > img {
+  object-fit: cover;
+}
+
+#profile-picture {
+  width: 24px;
+  height: 16px;
+  box-shadow: 0 0 0 3px var(--background);
+}
+
+#name>p {
+  font-size: 14px;
+  margin-left: -3px;
+  margin-top: 1px;
+  letter-spacing: -0.64px;
+}
+
+#headline {
+  font-size: 42px;
+  line-height: 54px;
+  letter-spacing: -2.64px;
+}
+
+#profiles {
+  gap: 24px;
+}

@@ -51,3 +51,14 @@
 #profiles>a:not(.torender) {
   animation: .8s cube-rotate var(--animat);
 }
+
+#timeline>*:not(.torender) {
+  animation: 1s timeline cubic-bezier(0, .25, 0, 1);
+}
+
+@keyframes timeline {
+  0% {
+    transform: translateX(192px);
+    filter: blur(8px);
+  }
+}
