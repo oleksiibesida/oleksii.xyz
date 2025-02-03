@@ -16,6 +16,7 @@
   0% {
     transform: rotateX(-45deg) translateY(48px);
     opacity: 0;
+    filter: blur(4px);
   }
 }
 
@@ -41,6 +42,7 @@
   0% {
     transform: rotateX(-45deg) translateY(64px);
     opacity: 0;
+    filter: blur(4px);
   }
 }
 
@@ -61,4 +63,8 @@
     transform: translateX(192px);
     filter: blur(8px);
   }
+}
+
+#signature {
+  animation: .8s cube-rotate .8s var(--animat);
 }

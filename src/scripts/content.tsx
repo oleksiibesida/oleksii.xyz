@@ -25,7 +25,7 @@ const timelinePages: Array<string> = [ '2024', 'DEC', 'OCT', 'SEP' ];
 
 const social: Record<string, string> = { tg, xx, gh, li };
 
-const timelineDelay = (i: number): number => 500 + Math.sqrt(i) * 300;
+const timelineDelay = (i: number): number => -400 + Math.sqrt(i/2+1) * 1000;
 
 const timeline = <div id="timeline" style="height: 10px; top: 24px; position: fixed; width: 100%">
   <p delay={400} style="margin-left: 320px">HOME</p>
@@ -131,7 +131,7 @@ export async function load() {
 }
 
 import "@lottiefiles/lottie-player";
-import signature from '/assets/lottie/signature2.json?raw';
+import signature from '/assets/lottie/signature.json?raw';
 
 const elementResolve: Record<string, (e: HTMLElement) => void> = {
   title: () => {
