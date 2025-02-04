@@ -1,4 +1,5 @@
 import { createElement } from './jsx';
+import { haptic } from './haptic';
 
 import fontLoader from './fontLoader';
 
@@ -35,38 +36,6 @@ const timeline = <div id="timeline" style="height: 10px; top: 24px; position: fi
   }) }
 </div>
 
-// Add this function to handle tab focusing
-function focusTab(tabId: string) {
-  const timeline = document.getElementById('timeline');
-  if (!timeline) return;
-  
-  const tabs = timeline.getElementsByClassName('tab');
-  const activeTab = timeline.querySelector(`[data-id="${tabId}"]`);
-  
-  Array.from(tabs).forEach((tab: Element) => {
-    const distance = getDistanceFromCenter(tab as HTMLElement);
-    const blur = Math.min(4, Math.abs(distance) * 0.1);
-    
-    tab.classList.remove('active');
-    (tab as HTMLElement).style.filter = `blur(${blur}px)`;
-  });
-  
-  if (activeTab) {
-    activeTab.classList.add('active');
-    (activeTab as HTMLElement).style.filter = 'blur(0px)';
-  }
-}
-
-function getDistanceFromCenter(element: HTMLElement): number {
-  const timeline = document.getElementById('timeline');
-  if (!timeline) return 0;
-  
-  const timelineCenter = timeline.offsetWidth / 2;
-  const elementCenter = element.offsetLeft + (element.offsetWidth / 2);
-  
-  return elementCenter - timelineCenter;
-}
-
 const container = <div id='container'>
   <div id='name' delay={0}>
     <div id='profile-picture'><img src={pf} alt='Portrait' /></div>
@@ -87,7 +56,7 @@ const container = <div id='container'>
     Object.entries(profile).map(([id, props]) => {
       let index = Object.keys(profile).indexOf(id), href = `https://${props['href']}`;
       let image = <img src={social[id]} alt={props['alt']} />;
-      return <a id={id} delay={800 + index * 50} href={href} target="_blank">{image}</a>;
+      return <a id={id} delay={800 + index * 50} href={href} target="_blank" ontouchstart={haptic} ontouchend={haptic}>{image}</a>;
     })
   } </div>
 </div>;
