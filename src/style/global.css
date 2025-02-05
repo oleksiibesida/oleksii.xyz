@@ -23,16 +23,19 @@
 html, body {
   padding: 0;
   margin: 0;
-  height: 100%;
+  height: 100dvh;
   color: var(--text);
-  display: flex;
-  flex-direction: column;
-  align-content: center;
   background: var(--background);
   letter-spacing: -0.04em;
   font-family: 'text';
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow: hidden;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
 p {
@@ -44,13 +47,23 @@ img {
   user-select: none;
 }
 
+.page {
+  display: block;
+  position: relative;
+  height: 100dvh;
+  display: flex;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  box-sizing: border-box;
+}
+
 #container {
   perspective: 512px;
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: auto;
   gap: 32px;
+  justify-content: center;
 }
 
 #name {
@@ -63,7 +76,6 @@ img {
   align-self: center;
   text-align: end;
   margin-bottom: -16px;
-  transform: translateZ(24px);
 }
 
 #name>p {
@@ -135,7 +147,7 @@ img {
 }
 
 #signature {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   opacity: 1;
   height: 72px;
@@ -161,6 +173,8 @@ img {
 }
 
 #footer {
+  position: fixed;
+  bottom: 0;
   display: flex;
   align-self: center;
   justify-content: center;
@@ -272,6 +286,7 @@ img {
 
 #container {
   padding: 0 32px;
+  padding-bottom: 64px;
 }
 
 #profile-picture > img {

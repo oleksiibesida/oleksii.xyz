@@ -13,6 +13,17 @@ const profile: Record<string, {alt: string, href: string}> = {
   li:  { alt: 'LinkedIn', href: 'linkedin.com/in/olksij' },
 };
 
+const pages: Array<{title: string, description: string, images: Array<string>}> = [
+  { title: 'Desktop Weather',
+    description: '',
+    images: []
+  },
+  { title: 'Page2',
+    description: '',
+    images: []
+  },
+];
+
 // inline pictures
 import pf from '/assets/images/profilePicture.jpeg';
 import tg from '/assets/icons/telegram.svg';
@@ -36,7 +47,7 @@ const timeline = <div id="timeline" style="height: 10px; top: 24px; position: fi
   }) }
 </div>
 
-const container = <div id='container'>
+const container: HTMLDivElement = <div id='container' class='page'>
   <div id='name' delay={0}>
     <div id='profile-picture'><img src={pf} alt='Portrait' /></div>
     <p>OLEKSII</p>
@@ -86,8 +97,14 @@ export async function load() {
   for (var ss of stylesheets) document.head.
     append(<style media={ss.media ?? ''}>{ss.style}</style>)
 
+  const sPages = pages.map(page => {
+    return  <div class='page'>
+      <p>{page.title}</p>
+    </div>;
+  });
+
   await fontLoader();
-  document.body.append(timeline, container, footer, player);
+  document.body.append(timeline, container, ...sPages, footer, player);
 
   let toRender = document.getElementsByClassName('torender');
   Array.from(toRender).forEach(async element => {
@@ -139,3 +156,23 @@ const timing = {
   iterations: 1,
   easing: 'cubic-bezier(0.5, 0, 0, 1)',
 };
+
+
+const interval = () => document.body.clientHeight; // 50vh interval
+
+let lastHapticPoint = 0;
+
+document.body.addEventListener('scroll', () => {
+  const currentScroll = document.body.scrollTop;
+  const scrollPoint = currentScroll/interval() + .5;
+  
+  // Check if we've crossed a .5 interval point
+  const currentHapticPoint = Math.floor(scrollPoint);
+
+  console.log(currentHapticPoint)
+  
+  if (currentHapticPoint !== lastHapticPoint) {
+    haptic();
+    lastHapticPoint = currentHapticPoint;
+  }
+});

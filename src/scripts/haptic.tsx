@@ -8,4 +8,3 @@ document.body.append(hapticElement)
 export function haptic() {
   'vibrate' in navigator ? navigator .vibrate(10) : hapticElement .click();
 }
-
